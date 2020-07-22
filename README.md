@@ -10,5 +10,7 @@ The [**AlphaVantage**](https://www.alphavantage.co/) [API](https://en.wikipedia.
 ## Documentation :book:
 The documentation for the API can be found [here](https://www.alphavantage.co/documentation/).
 
+Example code snippets can be found [here](https://github.com/RomelTorres/av_example/blob/master/Alpha%20vantage%20examples.ipynb).
+
 
 ###### Authors: John Gutierrez
