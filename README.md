@@ -12,5 +12,6 @@ The documentation for the API can be found [here](https://www.alphavantage.co/do
 
 Example code snippets can be found [here](https://github.com/RomelTorres/av_example/blob/master/Alpha%20vantage%20examples.ipynb).
 
+Currently, the `requirements.txt` file is being generated periodically by using `pipdeptree --freeze  --warn silence > requirements.txt`
 
 ###### Authors: John Gutierrez
