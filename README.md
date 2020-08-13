@@ -1,7 +1,7 @@
 # Stock-Sharingan :chart_with_upwards_trend
 
 Experiment ways to monitor and predict the market trends.  
-Provide updates/notifications on triggered events.
+Provide updates/notifications on triggered events.  
 
 ## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer
 
