@@ -1,5 +1,7 @@
 # Stock-Sharingan :chart_with_upwards_trend: 
-![](https://travis-ci.com/XDwightsBeetsX/stock-sharingan.svg?branch=master)  
+![](https://travis-ci.com/XDwightsBeetsX/stock-sharingan.svg?branch=master)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)  
+
 Experiment ways to monitor and predict the market trends.  
 Provide updates/notifications on triggered events.  
 
