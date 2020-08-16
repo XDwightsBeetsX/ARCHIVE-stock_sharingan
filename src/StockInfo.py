@@ -1,4 +1,5 @@
 import datetime
+from matplotlib import pyplot as plt
 
 
 class StockInfo:
@@ -15,8 +16,8 @@ class StockInfo:
         self.closePrice = close_price
         self.volume = volume
 
-
-    def export_to_excel(self, sheet, start_row, start_col):
+    def write_excel(self, sheet, start_row, start_col):
         return
 
-    def
+    def plot(self, plotter):
+        return
