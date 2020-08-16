@@ -1,4 +1,4 @@
-alpha-vantage==2.2.0
+alpha_vantage==2.2.0
 Markdown==3.2.2
 matplotlib==3.3.0
 numpy==1.19.0
