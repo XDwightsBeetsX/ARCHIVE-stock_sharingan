@@ -19,7 +19,7 @@ and configuring that will be described here...
 Remember API have limits on calls!
 
 ### API Call Endpoints
-#### Stocks
+- #### Stocks
 |Endpoint|Weight|Example Call|Example Response|
 |:--|---|---|:-:|
 |get_price()|1|`tsla = Stock('TSLA')  tsla.get_price()`| |
@@ -28,13 +28,13 @@ Remember API have limits on calls!
 |get_social_sentiment()|#|`get_social_sentiment("AAPL")`| |
 |get_ceo_compensation()|#|`get_ceo_compensation("AAPL")`| |
 
-#### RefData
+- #### RefData
 |Endpoint|Weight|Example Call|Example Response|
 |:--|---|---|:-:|
 |get_symbols()|100|`get_symbols()`| |
 |get_iex_symbols()|100|`get_iex_symbols()`| |
 
-#### Account
+- #### Account
 |Endpoint|Weight|Example Call|Example Response|
 |:--|---|---|:-:|
 |get_usage()|0|`get_usage(quota_type='messages')`| |
