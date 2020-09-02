@@ -23,6 +23,5 @@ if __name__ == "__main__":
         print("[SS]-[API]-[ERROR] Make sure the only contents of the file is your key.")
         print("[SS]-[API]-[ERROR] Path checked: " + api_path + api_filename)
 
-
 else:
     print("[SS]-[SYS]-[ERROR] Error running the project")
