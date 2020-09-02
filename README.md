@@ -3,12 +3,15 @@
 ![build-status](https://travis-ci.com/XDwightsBeetsX/stock-sharingan.svg?branch=master)
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
 
-Experiment ways to monitor and predict the market trends.  
-Provide updates/notifications on triggered events.  
+This app gives insight into the movements of the market and provide updates/notifications on triggered events.  
+Data can be configured to save to disc or be sent by email / sms.  
 
 ## Documentation :book:
+Placeholder text for documenting this app  
+This app is gonna do cool stuff like send emails with market winners
+and configuring that will be described here...
 
-## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
+## The IEX Cloud [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
 
 ### API Documentation :book:
 ||Docs|API Examples|Repo Interface|Interface Docs|Lang|Free|
