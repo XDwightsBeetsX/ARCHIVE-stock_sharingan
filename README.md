@@ -11,12 +11,10 @@ Placeholder text for documenting this app
 This app is gonna do cool stuff like send emails with market winners
 and configuring that will be described here...
 
-## The IEX Cloud [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
-
-### API Documentation :book:
-||Docs|API Examples|Repo Interface|Interface Docs|Lang|Free|
+## The IEX Cloud API :computer:
+||API Documentation|API Examples|Repo Interface|PyPI|Lang|Free|
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
-|[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance)|[:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html#)|`python`|:white_check_mark:|
+|[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance) [:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html#)|[:book:](https://pypi.org/project/iexfinance/)|`python`|:white_check_mark:|
 
 Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).  
 :warning: Remember API have limits on calls! :warning:  
