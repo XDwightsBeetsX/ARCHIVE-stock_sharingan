@@ -1,6 +1,7 @@
 # used packages
 iexfinance
 pandas
+matplotlib
 
 # testing
 pytest
