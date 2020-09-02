@@ -14,10 +14,14 @@ api_path = "C:\\dev\\"
 api_filename = "iex_key.txt"
 
 if __name__ == "__main__":
-    print("Running stock-sharingan...")
-
-    api_key = Api.get_api(api_path, api_filename)
-    # api_call_frequency = 5
+    print("[SS] Running stock-sharingan...")
+    try:
+        print("[SS]-[API] Looking for API key in " + api_path + api_filename)
+        api_key = Api.get_api(api_path, api_filename)
+    except RuntimeError:
+        print("[SS]-[API] Could not locate/validate your key.")
+        print("[SS]-[API] Make sure the only contents of the file is your key.")
+        print("[SS]-[API] Path checked: " + api_path + api_filename)
 
     # some things to consider:
     #   how to implement requests

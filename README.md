@@ -14,6 +14,8 @@ Provide updates/notifications on triggered events.
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | [**IEX Cloud**](https://iexcloud.io/) | [:book:](https://iexcloud.io/docs/api/) | ------ | ------ | [addisonlynch](https://github.com/addisonlynch/iexfinance) | `python` | :white_check_mark: |
 
+Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).
+
 ## Documentation :book:
 
 ## Troubleshooting :worried:
