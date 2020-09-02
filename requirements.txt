@@ -1,6 +1,5 @@
 # used packages
-matplotlib
-numpy
+iexfinance
 pandas
 
 # testing

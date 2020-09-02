@@ -1,3 +1,5 @@
+# Ignore IDE Code environments
+
 # VS Code
 .vscode
 
