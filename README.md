@@ -14,22 +14,24 @@ and configuring that will be described here...
 ## The IEX Cloud API :computer:
 ||API Documentation|API Examples|Repo Interface|PyPI|Lang|Free|
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
-|[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance) [:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html#)|[:book:](https://pypi.org/project/iexfinance/)|`python`|:white_check_mark:|
+|[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance) [:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html)|[:book:](https://pypi.org/project/iexfinance/)|`python`|:white_check_mark:|
 
 Remember API have limits on calls!
 
 ### API Call Endpoints
 |Endpoint|Weight|Example Call|Example Response|
-|:--|---|:-:|:-:|
-|Time Series|0| | |
-|Price Only|1| | |
-|Last (Price)|0| | |
-|Quote|1| | |
-|Company Data|1| | |
-|Key Stats|5 for full, 1 for single| | |
-|News|1| | |
-|Historical Price|10 / stock / unit time requested| | |
-|Reference Data|100| | |
+|:--|---|---|:-:|
+|stocks.Stock.get_price()|1|`tsla = Stock('TSLA')  tsla.get_price()`| |
+|stocks.Stock.get_quote()|1|`a = Stock("AAPL")  a.get_quote()`| |
+|stocks.get_historical_data()|10 / stock / unit time requested|`start = datetime(2017, 1, 1)  end = datetime(2018, 1, 1)  df = get_historical_data("TSLA", start, end)`| |
+|Stock.get_social_sentiment()|#|`get_social_sentiment("AAPL")`| |
+|Stock.get_ceo_compensation()|#|`get_ceo_compensation("AAPL")`| |
+|refdata.get_symbols()|100|`get_symbols()`| |
+|refdata.get_iex_symbols()|100|`get_iex_symbols()`| |
+|account.get_usage()|0|`get_usage(quota_type='messages')`| |
+|account.get_api_status()|0|`get_api_status()`| |
+
+Always include the argument `token="<YOUR API KEY>"` in endpoint calls!
 
 ## Troubleshooting :worried:
 - Check your API key and location
