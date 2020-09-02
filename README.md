@@ -19,17 +19,26 @@ and configuring that will be described here...
 Remember API have limits on calls!
 
 ### API Call Endpoints
+#### Stocks
 |Endpoint|Weight|Example Call|Example Response|
 |:--|---|---|:-:|
-|stocks.Stock.get_price()|1|`tsla = Stock('TSLA')  tsla.get_price()`| |
-|stocks.Stock.get_quote()|1|`a = Stock("AAPL")  a.get_quote()`| |
-|stocks.get_historical_data()|10 / stock / unit time requested|`start = datetime(2017, 1, 1)  end = datetime(2018, 1, 1)  df = get_historical_data("TSLA", start, end)`| |
-|Stock.get_social_sentiment()|#|`get_social_sentiment("AAPL")`| |
-|Stock.get_ceo_compensation()|#|`get_ceo_compensation("AAPL")`| |
-|refdata.get_symbols()|100|`get_symbols()`| |
-|refdata.get_iex_symbols()|100|`get_iex_symbols()`| |
-|account.get_usage()|0|`get_usage(quota_type='messages')`| |
-|account.get_api_status()|0|`get_api_status()`| |
+|get_price()|1|`tsla = Stock('TSLA')  tsla.get_price()`| |
+|get_quote()|1|`a = Stock("AAPL")  a.get_quote()`| |
+|get_historical_data()|10 / stock / unit time requested|`start = datetime(2017, 1, 1)  end = datetime(2018, 1, 1)  df = get_historical_data("TSLA", start, end)`| |
+|get_social_sentiment()|#|`get_social_sentiment("AAPL")`| |
+|get_ceo_compensation()|#|`get_ceo_compensation("AAPL")`| |
+
+#### RefData
+|Endpoint|Weight|Example Call|Example Response|
+|:--|---|---|:-:|
+|get_symbols()|100|`get_symbols()`| |
+|get_iex_symbols()|100|`get_iex_symbols()`| |
+
+#### Account
+|Endpoint|Weight|Example Call|Example Response|
+|:--|---|---|:-:|
+|get_usage()|0|`get_usage(quota_type='messages')`| |
+|get_api_status()|0|`get_api_status()`| |
 
 Always include the argument `token="<YOUR API KEY>"` in endpoint calls!
 
