@@ -8,7 +8,7 @@ Steps to activate your sharingan:
     3. Set up the api_path variable
     4. Use the Sharingan (@) (@)
 """
-import src.Api as Api
+from src import Api
 
 api_path = "C:\\dev"
 api_filename = "iex_keyasdf.txt"
