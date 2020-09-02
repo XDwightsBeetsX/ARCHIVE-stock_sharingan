@@ -31,8 +31,7 @@ Additional documentation and examples on the API can be found on [PyPi](https://
 |Reference Data|100| | |
 
 ## Troubleshooting :worried:
-
-- Check `requirements.txt`
 - Check your API key and location
+- Check the `requirements.txt` and your python environment packages
 
 ###### :warning: THIS PROJECT BEARS NO FINANCIAL RESPONSIBILITY. DATA MAY NOT BE EXACT :warning:
