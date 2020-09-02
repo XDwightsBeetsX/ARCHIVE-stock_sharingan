@@ -11,10 +11,10 @@ Provide updates/notifications on triggered events.
 ## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
 :warning: **API have limits on calls** :warning:
 
-### API Docs [:book:](https://iexcloud.io/docs/api)
+### API Documentation :book:
 ||Docs|API Examples|Repo Interface|Lang|Free|
 |:--|:-:|:-:|:-:|:-:|:-:|
-|[**IEX Cloud** :cloud:](https://iexcloud.io/)|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance)|`python`|:white_check_mark:|
+|[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance)|`python`|:white_check_mark:|
 
 Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).
 
