@@ -9,14 +9,14 @@ Provide updates/notifications on triggered events.
 ## Documentation :book:
 
 ## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
-:warning: **API have limits on calls** :warning:
 
 ### API Documentation :book:
 ||Docs|API Examples|Repo Interface|Interface Docs|Lang|Free|
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
 |[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance)|[:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html#)|`python`|:white_check_mark:|
 
-Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).
+Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).  
+:warning: Remember API have limits on calls! :warning:  
 
 ### API Call Endpoints
 |Endpoint|Weight|Example Call|Example Response|
