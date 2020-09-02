@@ -6,8 +6,9 @@
 Experiment ways to monitor and predict the market trends.  
 Provide updates/notifications on triggered events.  
 
-## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
+## Documentation :book:
 
+## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
 :warning: **API have limits on calls** :warning:
 
 #### API Docs [:book:](https://iexcloud.io/docs/api)
@@ -17,16 +18,21 @@ Provide updates/notifications on triggered events.
 Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).
 
 #### Call Endpoints [:book:](https://iexcloud.io/docs/api/#rules-engine-beta)
-| |TIME_SERIES|HISTORICAL_PRICE|REF_DATA|
+|Endpoint|Weight|Example Call|Sample Response|
 |------|------|------|------|
-|Endpoint Weight |0|10 / stock / unit time requested|100|
-|Sample Response| | | |
-
-## Documentation :book:
+|Time Series|0| | |
+|Price Only|1| | |
+|Last (Price)|0| | |
+|Quote|1| | |
+|Company Data|1| | |
+|Key Stats|5 for full, 1 for single| | |
+|News|1| | |
+|Historical Price|10 / stock / unit time requested| | |
+|Reference Data|100| | |
 
 ## Troubleshooting :worried:
 
 - Check `requirements.txt`
 - Check your API key and location
 
-> Author: John Gutierrez
+###### :warning: THIS PROJECT BEARS NO FINANCIAL RESPONSIBILITY. DATA MAY NOT BE EXACT :warning:
