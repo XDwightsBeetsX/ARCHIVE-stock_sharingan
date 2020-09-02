@@ -16,8 +16,7 @@ and configuring that will be described here...
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
 |[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance) [:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html#)|[:book:](https://pypi.org/project/iexfinance/)|`python`|:white_check_mark:|
 
-Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).  
-:warning: Remember API have limits on calls! :warning:  
+Remember API have limits on calls!
 
 ### API Call Endpoints
 |Endpoint|Weight|Example Call|Example Response|
