@@ -16,7 +16,7 @@ and configuring that will be described here...
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
 |[**IEX Cloud**](https://iexcloud.io/):cloud:|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples) [:pencil:](https://github.com/addisonlynch/iex-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance) [:book:](https://addisonlynch.github.io/iexfinance/stable/stocks.html)|[:book:](https://pypi.org/project/iexfinance/)|`python`|:white_check_mark:|
 
-Remember API have limits on calls!
+*Remember API have limits on calls!*
 
 ### API Call Endpoints
 #### *Stocks*
@@ -41,8 +41,8 @@ Remember API have limits on calls!
 |get_usage()|0|`get_usage(quota_type='messages')`|
 |get_api_status()|0|`get_api_status()`|
 
-Always include the argument `token="<YOUR API KEY>"` in endpoint calls!
-Use the argument `output_format='pandas'` to get a pandas `DataFrame` object.
+*Always include the argument `token="<YOUR API KEY>"` in endpoint calls!*  
+*Use the argument `output_format='pandas'` to get a pandas `DataFrame` object.*  
 
 # Troubleshooting :worried:
 - Check your API key and location
