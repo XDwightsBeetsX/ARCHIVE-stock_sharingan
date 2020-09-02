@@ -11,15 +11,16 @@ Provide updates/notifications on triggered events.
 ## [API](https://en.wikipedia.org/wiki/Application_programming_interface) :computer:
 :warning: **API have limits on calls** :warning:
 
-#### API Docs [:book:](https://iexcloud.io/docs/api)
-| |Docs|API Examples|Repo Interface|Lang|Free|
-|------|------|------|------|------|------|
-|[**IEX Cloud**](https://iexcloud.io/)|[:book:](https://iexcloud.io/docs/api)|------|[addisonlynch](https://github.com/addisonlynch/iexfinance)|`python`|:white_check_mark:|
+### API Docs [:book:](https://iexcloud.io/docs/api)
+||Docs|API Examples|Repo Interface|Lang|Free|
+|:--|:-:|:-:|:-:|:-:|:-:|
+|[**IEX Cloud** :cloud:](https://iexcloud.io/)|[:book:](https://iexcloud.io/docs/api)|[:pencil:](https://github.com/addisonlynch/iexfinance#common-usage-examples)|[addisonlynch](https://github.com/addisonlynch/iexfinance)|`python`|:white_check_mark:|
+
 Additional documentation and examples on the API can be found on [PyPi](https://pypi.org/project/iexfinance/).
 
-#### Call Endpoints [:book:](https://iexcloud.io/docs/api/#rules-engine-beta)
-|Endpoint|Weight|Example Call|Sample Response|
-|------|------|------|------|
+### API Call Endpoints
+|Endpoint|Weight|Example Call|Example Response|
+|:--|---|:-:|:-:|
 |Time Series|0| | |
 |Price Only|1| | |
 |Last (Price)|0| | |
