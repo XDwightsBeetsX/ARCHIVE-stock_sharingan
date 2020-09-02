@@ -20,26 +20,26 @@ Remember API have limits on calls!
 
 ### API Call Endpoints
 #### *Stocks*
-|Endpoint|Weight|Example Call|Example Response|
-|:--|---|---|:-:|
-|get_price()|1|`tsla = Stock('TSLA')`<br>`tsla.get_price()`| |
-|get_quote()|1|`aapl = Stock("AAPL")`<br>`aapl.get_quote()`| |
-|get_historical_data()|10 / stock / unit time requested|`start = datetime(2017, 1, 1)`<br>`end = datetime(2018, 1, 1)`<br>`df = get_historical_data("TSLA", start, end)`| |
-|get_historical_data(close_only=True)|2? / stock / unit time requested|`start = datetime(2017, 1, 1)`<br>`end = datetime(2018, 1, 1)`<br>`df = get_historical_data("TSLA", start, end, close_only=True)`| |
-|get_social_sentiment()|#|`get_social_sentiment("AAPL")`| |
-|get_ceo_compensation()|#|`get_ceo_compensation("AAPL")`| |
+|Endpoint|Weight|Sample Call|
+|:--|---|---|
+|get_price()|1|`tsla = Stock('TSLA')`<br>`tsla.get_price()`|
+|get_quote()|1|`aapl = Stock("AAPL")`<br>`aapl.get_quote()`|
+|get_historical_data()|10 / stock / unit time requested|`start = datetime(2017, 1, 1)`<br>`end = datetime(2018, 1, 1)`<br>`df = get_historical_data("TSLA", start, end)`|
+|get_historical_data(close_only=True)|2? / stock / unit time requested|`start = datetime(2017, 1, 1)`<br>`end = datetime(2018, 1, 1)`<br>`df = get_historical_data("TSLA", start, end, close_only=True)`|
+|get_social_sentiment()|#|`get_social_sentiment("AAPL")`|
+|get_ceo_compensation()|#|`get_ceo_compensation("AAPL")`|
 
 #### *RefData*
-|Endpoint|Weight|Example Call|Example Response|
-|:--|---|---|:-:|
-|get_symbols()|100|`get_symbols()`| |
-|get_iex_symbols()|100|`get_iex_symbols()`| |
+|Endpoint|Weight|Sample Call|
+|:--|---|---|
+|get_symbols()|100|`get_symbols()`|
+|get_iex_symbols()|100|`get_iex_symbols()`|
 
 #### *Account*
-|Endpoint|Weight|Example Call|Example Response|
-|:--|---|---|:-:|
-|get_usage()|0|`get_usage(quota_type='messages')`| |
-|get_api_status()|0|`get_api_status()`| |
+|Endpoint|Weight|Sample Call|
+|:--|---|---|
+|get_usage()|0|`get_usage(quota_type='messages')`|
+|get_api_status()|0|`get_api_status()`|
 
 Always include the argument `token="<YOUR API KEY>"` in endpoint calls!
 Use the argument `output_format='pandas'` to get a pandas `DataFrame` object.
