@@ -7,7 +7,7 @@ Next steps for Routine.py:
     3. link to email / sms for updates
     4. make this easily customizable
 """
-from src import Stocks, Plots, Sector, Social
+from src import Time, Plots
 from iexfinance.stocks import Stock, get_historical_data
 import time as t
 import datetime as dt
@@ -68,14 +68,6 @@ class Routine:
             t.sleep(self.frequency)
 
     def plot_last_workweek_data(self):
-        last_monday, last_friday = self.get_last_workweek()
+        last_monday, last_friday = Time.get_last_workweek()
         last_week_df = get_historical_data(self.stocks, last_monday, last_friday, token=self.api_key, close_only=True, output_format="pandas")
         Plots.plot_stock(last_week_df, last_monday, last_friday, self.file_save_destination)
-
-    @staticmethod
-    def get_last_workweek():
-        today = dt.datetime.today()
-        last_monday = today + dt.timedelta(-today.weekday(), weeks=-1)
-        last_friday = today + dt.timedelta(-today.weekday() - 3)
-
-        return last_monday, last_friday
