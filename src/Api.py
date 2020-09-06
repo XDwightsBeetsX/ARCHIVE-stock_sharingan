@@ -5,10 +5,12 @@ This module handles any api aspects such as:
 """
 import os
 import pandas as pd
+import datetime as dt
 from iexfinance.refdata import get_symbols
+from iexfinance.stocks import get_historical_data
 
 
-def get_api(api_path, api_filename):
+def get_api_key(api_path, api_filename, get_references=False):
     """
     Searches through directories and files of api_path for api_filename and returns the api_key
     api_key is run through verify_api_key to ensure validity
@@ -23,8 +25,8 @@ def get_api(api_path, api_filename):
                     try:
                         with open(os.path.join(root, file), "r") as api_file:
                             api_key = api_file.read().splitlines()[0]
-                            print("[SS]-[API] Attempting to verify key:", api_key)
-                            if verify_api_key(api_key, root):
+                            print(f"[SS]-[API] Attempting to verify key: [{api_key}]")
+                            if verify_api_key(api_key, root, get_references):
                                 print("[SS]-[API] Key verified:", api_key)
                                 return api_key
                             else:
@@ -35,23 +37,27 @@ def get_api(api_path, api_filename):
 
     except Exception:
         print("[SS]-[API]-[ERROR] Make sure the only contents of the file is your key.")
-        print("[SS]-[API]-[ERROR] Path checked: " + api_path + "\\" + api_filename)
         print("[SS]-[API]-[ERROR] Exiting... ")
         exit()
 
 
-def verify_api_key(api_key, api_key_path):
+def verify_api_key(api_key, api_key_path, get_references=False):
     """
     Used by get_api to ensure the key is valid
-    Does this by attempting a call to get stock_references
+    Does this by attempting a call to get stock_references or AAPL price
     """
     try:
-        stock_references = get_symbols(output_format='pandas', token=api_key)
-    except Exception:
+        if get_references:
+            stock_references = get_symbols(output_format="pandas", token=api_key)
+            writer = pd.ExcelWriter(api_key_path + "\\stock_references_iexcloud.xlsx")
+            stock_references.to_excel(writer, sheet_name="Stock References")
+            writer.save()
+            writer.close()
+            print("[SS]-[API] Wrote stock references to api filepath.")
+        else:
+            verify_datetime = dt.datetime(2020, 9, 1)
+            get_historical_data("AAPL", verify_datetime, close_only=True, token=api_key)
+    except Exception as e:
+        print(e)
         return False
-    writer = pd.ExcelWriter(api_key_path + "\\stock_references_iexcloud.xlsx")
-    stock_references.to_excel(writer, sheet_name='Sheet1')
-    writer.save()
-    writer.close()
-    print("[SS]-[API] Wrote stock references to api filepath.")
     return True

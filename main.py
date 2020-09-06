@@ -6,7 +6,7 @@ Steps to activate your sharingan:
     0. Make an IEX Cloud account
     1. Get your API key
     2. Save the key to a iex_key.txt file
-    3. Set up the api_path variable
+    3. Set up the api_path variable below
     4. Unleash the Sharingan (@) (@)
 """
 from src import Api, Routine
@@ -16,13 +16,11 @@ api_filename = "iex_key.txt"
 
 if __name__ == "__main__":
     print("[SS] Running stock-sharingan...")
-    """RETRIEVE API KEY"""
-    # api_key = Api.get_api(api_path, api_filename)
 
-    """RUN ROUTINE"""
-    routine = Routine.Routine("AAPL")
-    routine.run(1, 10)
+    api_key = Api.get_api_key(api_path, api_filename)
 
+    routine = Routine.Routine(api_key, ["AAPL", "TSLA"], 1, 1, "C:\\dev")
+    routine.run()
 
 else:
     print("[SS]-[SYS]-[ERROR] Error running the project")
