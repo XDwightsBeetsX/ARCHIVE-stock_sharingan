@@ -14,23 +14,30 @@ def get_api(api_path, api_filename):
     api_key is run through verify_api_key to ensure validity
     if fails, throws error caught in main
     """
-    for root, dirs, files in os.walk(api_path):
-        for file in files:
-            if file.endswith(api_filename):
-                print("[SS]-[API] Found api file:", os.path.join(root, file))
-                try:
-                    with open(os.path.join(root, file), "r") as api_file:
-                        api_key = api_file.read().splitlines()[0]
-                        if verify_api_key(api_key, root):
-                            print("[SS]-[API] Key verified:", api_key)
-                            return api_key
-                        else:
-                            print("[SS]-[API]-[ERROR] Key was found, but is not valid.")
-                            return ""
-                except Exception:
-                    print("[SS]-[API]-[ERROR] Encountered error while reading key.")
-                    return ""
-    raise Exception
+    print("[SS]-[API] Looking for API key in " + api_path + "\\" + api_filename)
+    try:
+        for root, dirs, files in os.walk(api_path):
+            for file in files:
+                if file.endswith(api_filename):
+                    print("[SS]-[API] Found api file:", os.path.join(root, file))
+                    try:
+                        with open(os.path.join(root, file), "r") as api_file:
+                            api_key = api_file.read().splitlines()[0]
+                            print("[SS]-[API] Attempting to verify key:", api_key)
+                            if verify_api_key(api_key, root):
+                                print("[SS]-[API] Key verified:", api_key)
+                                return api_key
+                            else:
+                                print("[SS]-[API]-[ERROR] Key was found, but is not valid.")
+                    except Exception:
+                        print("[SS]-[API]-[ERROR] Encountered error while reading/verifying key.")
+        raise Exception
+
+    except Exception:
+        print("[SS]-[API]-[ERROR] Make sure the only contents of the file is your key.")
+        print("[SS]-[API]-[ERROR] Path checked: " + api_path + "\\" + api_filename)
+        print("[SS]-[API]-[ERROR] Exiting... ")
+        exit()
 
 
 def verify_api_key(api_key, api_key_path):

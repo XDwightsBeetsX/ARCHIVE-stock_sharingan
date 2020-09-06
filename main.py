@@ -16,17 +16,13 @@ api_filename = "iex_key.txt"
 
 if __name__ == "__main__":
     print("[SS] Running stock-sharingan...")
+    """RETRIEVE API KEY"""
+    # api_key = Api.get_api(api_path, api_filename)
 
+    """RUN ROUTINE"""
     routine = Routine.Routine("AAPL")
-    routine.run(2, 20)
+    routine.run(1, 10)
 
-    # try:
-    #     print("[SS]-[API] Looking for API key in " + api_path + "\\" + api_filename)
-    #     api_key = Api.get_api(api_path, api_filename)
-    # except Exception:
-    #     print("[SS]-[API]-[ERROR] Could not locate/validate your key.")
-    #     print("[SS]-[API]-[ERROR] Make sure the only contents of the file is your key.")
-    #     print("[SS]-[API]-[ERROR] Path checked: " + api_path + api_filename)
 
 else:
     print("[SS]-[SYS]-[ERROR] Error running the project")

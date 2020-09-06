@@ -13,6 +13,7 @@ from datetime import datetime as dt
 
 
 class Routine:
+    key = ""
     # list of stock tickers/objects? to make calls for
     stocks = []
     # frequency is in min
@@ -26,7 +27,8 @@ class Routine:
     # duration is in seconds
     duration = 0
 
-    def __init__(self, stocks=[], frequency=60, duration=60, notify_email="", notify_sms=""):
+    def __init__(self, api_key="", stocks=[], frequency=60, duration=60, notify_email="", notify_sms=""):
+        self.key = api_key
         self.stocks = stocks
         self.frequency = frequency
         self.duration = duration
@@ -51,9 +53,12 @@ class Routine:
         print(f"[SS]-[ROUTINE] Beginning routine at {dt.fromtimestamp(self.start_time)}")
 
         while self.running_time < self.duration:
-            t.sleep(self.frequency)
+            # Do stuff here
             self.call()
+
+            # Delay
             self.running_time = t.time() - self.start_time
+            t.sleep(self.frequency)
 
     def call(self):
-        print("whaddup", self.running_time)
+        print("hey")

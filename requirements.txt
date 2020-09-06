@@ -2,8 +2,6 @@
 iexfinance
 pandas
 matplotlib
-time
-datetime
 
 # testing
 pytest
