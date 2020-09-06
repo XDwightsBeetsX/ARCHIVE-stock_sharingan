@@ -8,8 +8,9 @@ Next steps for Routine.py:
     4. make this easily customizable
 """
 from src import Stocks, Plots, Sector, Social
+from iexfinance.stocks import Stock, get_historical_data
 import time as t
-from datetime import datetime as dt
+import datetime as dt
 
 
 class Routine:
@@ -56,25 +57,24 @@ class Routine:
         self.duration = duration
         self.start_time = t.time()
         self.running_time = 0
-        print(f"[SS]-[ROUTINE] Beginning routine at {dt.fromtimestamp(self.start_time)}")
+        print(f"[SS]-[ROUTINE] Beginning routine at {dt.datetime.fromtimestamp(self.start_time).date()}")
 
         while self.running_time < self.duration:
             # Do stuff here
-            self.get_last_workweek_data()
+            self.plot_last_workweek_data()
 
             # Delay
             self.running_time = t.time() - self.start_time
             t.sleep(self.frequency)
 
-    def get_last_workweek_data(self):
+    def plot_last_workweek_data(self):
         last_monday, last_friday = self.get_last_workweek()
-        last_week_df = get_historical_data(self.batch_stocks, last_monday, last_friday,
-                                           close_only=True, output_format="pandas", token=self.api_key)
+        last_week_df = get_historical_data(self.stocks, last_monday, last_friday, token=self.api_key, close_only=True, output_format="pandas")
         Plots.plot_stock(last_week_df, last_monday, last_friday, self.file_save_destination)
 
     @staticmethod
     def get_last_workweek():
-        today = dt.today()
+        today = dt.datetime.today()
         last_monday = today + dt.timedelta(-today.weekday(), weeks=-1)
         last_friday = today + dt.timedelta(-today.weekday() - 3)
 

@@ -27,7 +27,7 @@ def get_api_key(api_path, api_filename, get_references=False):
                             api_key = api_file.read().splitlines()[0]
                             print(f"[SS]-[API] Attempting to verify key: [{api_key}]")
                             if verify_api_key(api_key, root, get_references):
-                                print("[SS]-[API] Key verified:", api_key)
+                                print("[SS]-[API] Key verified.")
                                 return api_key
                             else:
                                 print("[SS]-[API]-[ERROR] Key was found, but is not valid.")
