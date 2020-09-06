@@ -2,8 +2,6 @@
 This module handles any api aspects such as:
     obtaining the key
     verifying the key
-
-    all calls???
 """
 import os
 import pandas as pd
