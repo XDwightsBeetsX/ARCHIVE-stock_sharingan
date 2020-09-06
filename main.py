@@ -19,8 +19,8 @@ if __name__ == "__main__":
 
     api_key = Api.get_api_key(api_path, api_filename)
 
-    routine = Routine.Routine(api_key, ["AAPL", "TSLA"], 1, 1, "C:\\dev")
-    routine.run()
+    routine = Routine.Routine(api_key, ["AAPL", "TSLA"], file_save_destination="C:\\dev")
+    routine.run(1, 1)
 
 else:
     print("[SS]-[SYS]-[ERROR] Error running the project")

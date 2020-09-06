@@ -74,7 +74,8 @@ class Routine:
 
     @staticmethod
     def get_last_workweek():
-        today = datetime.date.today()
-        last_monday = today - datetime.timedelta(days=today.weekday())
-        last_friday = last_monday + datetime.timedelta(days=4)
+        today = dt.today()
+        last_monday = today + dt.timedelta(-today.weekday(), weeks=-1)
+        last_friday = today + dt.timedelta(-today.weekday() - 3)
+
         return last_monday, last_friday
