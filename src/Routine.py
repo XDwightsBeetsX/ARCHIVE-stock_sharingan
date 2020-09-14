@@ -69,5 +69,10 @@ class Routine:
 
     def plot_last_workweek_data(self):
         last_monday, last_friday = Time.get_last_workweek()
-        last_week_df = get_historical_data(self.stocks, last_monday, last_friday, token=self.api_key, close_only=True, output_format="pandas")
+        last_week_df = get_historical_data(self.stocks,
+                                           last_monday,
+                                           last_friday,
+                                           token=self.api_key,
+                                           close_only=True,
+                                           output_format="pandas")
         Plots.plot_stock(last_week_df, last_monday, last_friday, self.file_save_destination)
