@@ -7,10 +7,11 @@ Next steps for Routine.py:
     3. link to email / sms for updates
     4. make this easily customizable
 """
-from src import Time, Plots
-from iexfinance.stocks import Stock, get_historical_data
 import time as t
 import datetime as dt
+from iexfinance.stocks import Stock, get_historical_data
+from .Time import get_prev_workday, get_prev_workweek
+from .Plots import plot_stock
 
 
 class Routine:
@@ -59,6 +60,7 @@ class Routine:
         self.running_time = 0
         print(f"[SS]-[ROUTINE] Beginning routine at {dt.datetime.fromtimestamp(self.start_time).date()}")
 
+        # todo add acct call check here-API
         while self.running_time < self.duration:
             # Do stuff here
             self.plot_last_workweek_data()
@@ -68,11 +70,11 @@ class Routine:
             t.sleep(self.frequency)
 
     def plot_last_workweek_data(self):
-        last_monday, last_friday = Time.get_last_workweek()
+        last_monday, last_friday = get_prev_workweek()
         last_week_df = get_historical_data(self.stocks,
                                            last_monday,
                                            last_friday,
                                            token=self.api_key,
                                            close_only=True,
                                            output_format="pandas")
-        Plots.plot_stock(last_week_df, last_monday, last_friday, self.file_save_destination)
+        plot_stock(last_week_df, last_monday, last_friday, self.file_save_destination)

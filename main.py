@@ -16,8 +16,10 @@ api_filename = "iex_key.txt"
 
 if __name__ == "__main__":
     print("[SS] Running stock-sharingan...")
-
+    
     api_key = Api.get_api_key(api_path, api_filename)
+
+    Api.print_acct_usage(api_key)
 
     routine = Routine.Routine(api_key, ["AAPL"], file_save_destination="C:\\dev")
     routine.run(1, 1)

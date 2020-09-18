@@ -1,7 +1,7 @@
 """
 This module handles retrieving
-    time spans
-    dates
+    prev workday
+    prev workweek
 """
 import time as t
 import datetime as dt
@@ -45,5 +45,3 @@ def get_prev_workweek(ref_date=dt.datetime.today()):
         prev_friday += week
     
     return prev_monday, prev_friday
-
-print(get_prev_workday(dt.datetime(2020, 9, 4, 17, 1)))
