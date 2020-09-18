@@ -19,7 +19,7 @@ def get_api_key(api_path, api_filename, get_references=False):
     """
     print("[SS]-[API] Looking for API key in " + api_path + "\\" + api_filename)
     try:
-        for root, dirs, files in os.walk(api_path):
+        for root, _dirs, files in os.walk(api_path):
             for file in files:
                 if file.endswith(api_filename):
                     print("[SS]-[API] Found api file:", os.path.join(root, file))
@@ -29,7 +29,7 @@ def get_api_key(api_path, api_filename, get_references=False):
                             print(f"[SS]-[API] Attempting to verify key: [{api_key}]")
                             if verify_api_key(api_key, root, get_references):
                                 print("[SS]-[API] Key verified.")
-                                disallow_pay_as_you_go(token=api_key)
+                                # disallow_pay_as_you_go(token=api_key)
                                 return api_key
                             else:
                                 print("[SS]-[API]-[ERROR] Key was found, but is not valid.")
@@ -42,7 +42,6 @@ def get_api_key(api_path, api_filename, get_references=False):
         print("[SS]-[API]-[ERROR] Exiting... ")
         exit()
 
-
 def verify_api_key(api_key, api_key_path, get_references=False):
     """
     Used by get_api to ensure the key is valid
@@ -51,7 +50,7 @@ def verify_api_key(api_key, api_key_path, get_references=False):
     try:
         if get_references:
             stock_references = get_symbols(output_format="pandas", token=api_key)
-            writer = pd.ExcelWriter(api_key_path + "\\stock_references_iexcloud.xlsx")
+            writer = pd.ExcelWriter(api_key_path + "\\stock_references_iexcloud.xlsx") # pylint: disable=abstract-class-instantiated
             stock_references.to_excel(writer, sheet_name="Stock References")
             writer.save()
             writer.close()
@@ -66,4 +65,4 @@ def verify_api_key(api_key, api_key_path, get_references=False):
 
 def print_acct_usage(api_key):
     print("[SS]-[API] Obtaining usage information...")
-    print(get_usage(api_key))
+    print(get_usage(quota_type="messages", token=api_key))

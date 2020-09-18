@@ -6,6 +6,7 @@ This module handles retrieving
 import time as t
 import datetime as dt
 
+
 def get_prev_workday(ref_date=dt.datetime.today()):
     """
     Returns the last workday.
@@ -18,7 +19,6 @@ def get_prev_workday(ref_date=dt.datetime.today()):
         prev_workday += dt.timedelta(days=1)
     
     return prev_workday
-
 
 def get_prev_workweek(ref_date=dt.datetime.today()):
     """
