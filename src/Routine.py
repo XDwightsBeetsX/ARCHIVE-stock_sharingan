@@ -42,6 +42,7 @@ class Routine:
         self.notify_sms = notify_sms
         print(f"[SS]-[ROUTINE] New routine created: freq={self.frequency}, dur={self.duration}, stocks={self.stocks}")
 
+
     def setup(self, stocks=stocks, frequency=frequency, duration=duration, file_save_destination=file_save_destination,
               notify_email=notify_email, notify_sms=notify_sms):
         self.stocks = stocks
@@ -52,6 +53,7 @@ class Routine:
         self.notify_sms = notify_sms
         print(f"[SS]-[ROUTINE] Current routine changed: freq={self.frequency}, "
               f"dur={self.duration}, stocks={self.stocks}")
+
 
     def run(self, frequency=frequency, duration=duration):
         self.frequency = frequency

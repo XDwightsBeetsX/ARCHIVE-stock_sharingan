@@ -42,6 +42,7 @@ def get_api_key(api_path, api_filename, get_references=False):
         print("[SS]-[API]-[ERROR] Exiting... ")
         exit()
 
+
 def verify_api_key(api_key, api_key_path, get_references=False):
     """
     Used by get_api to ensure the key is valid
@@ -63,6 +64,12 @@ def verify_api_key(api_key, api_key_path, get_references=False):
         return False
     return True
 
+
 def print_acct_usage(api_key):
-    print("[SS]-[API] Obtaining usage information...")
-    print(get_usage(quota_type="messages", token=api_key))
+    print("[SS]-[API] Getting usage information...")
+    usage = get_usage(quota_type="messages", token=api_key)
+    print(usage)
+
+def get_winners(api_key):
+    print("[SS]-[API] Getting winners...")
+

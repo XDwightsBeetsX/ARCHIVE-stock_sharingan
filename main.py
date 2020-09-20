@@ -12,6 +12,7 @@ Steps to activate your sharingan:
 from src.Api import get_api_key, print_acct_usage
 from src.Routine import Routine
 
+
 api_path = "C:\\dev"
 api_filename = "iex_key.txt"
 

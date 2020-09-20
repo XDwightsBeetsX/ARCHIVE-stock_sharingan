@@ -20,6 +20,7 @@ def get_prev_workday(ref_date=dt.datetime.today()):
     
     return prev_workday
 
+
 def get_prev_workweek(ref_date=dt.datetime.today()):
     """
     Returns the last monday and friday.
