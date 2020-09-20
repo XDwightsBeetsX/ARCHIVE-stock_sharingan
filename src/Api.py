@@ -66,10 +66,22 @@ def verify_api_key(api_key, api_key_path, get_references=False):
 
 
 def print_acct_usage(api_key):
+    """
+    TODO get this woking. currently error w key or something
+    """
     print("[SS]-[API] Getting usage information...")
     usage = get_usage(quota_type="messages", token=api_key)
     print(usage)
 
-def get_winners(api_key):
-    print("[SS]-[API] Getting winners...")
 
+def get_winners(api_key):
+    """
+    Get winner values:
+        ticker
+        price
+        $ & % change
+        volume
+    Save to excel
+    Email notify
+    """
+    print("[SS]-[API] Getting winners...")

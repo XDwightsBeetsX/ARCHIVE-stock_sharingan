@@ -56,6 +56,13 @@ class Routine:
 
 
     def run(self, frequency=frequency, duration=duration):
+        """
+        Continuous process that does the following:
+            tracks time and frequency of loop
+            manages calls based on account usage
+            gets stock data like winners and desired ticker info
+            sends notification messages
+        """
         self.frequency = frequency
         self.duration = duration
         self.start_time = t.time()
@@ -71,7 +78,11 @@ class Routine:
             self.running_time = t.time() - self.start_time
             t.sleep(self.frequency)
 
+
     def plot_last_workweek_data(self):
+        """
+        Gets last workweek (m, f) and calls Plot.plot_stock() to plot/save data
+        """
         last_monday, last_friday = get_prev_workweek()
         last_week_df = get_historical_data(self.stocks,
                                            last_monday,

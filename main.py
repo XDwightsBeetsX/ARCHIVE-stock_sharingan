@@ -21,8 +21,6 @@ if __name__ == "__main__":
     
     api_key = get_api_key(api_path, api_filename)
 
-    print_acct_usage(api_key)
-
     routine = Routine(api_key, ["AAPL"], file_save_destination="C:\\dev")
     routine.run(1, 1)
 
