@@ -36,12 +36,12 @@ def get_prev_workweek(ref_date=dt.datetime.today()):
     prev_friday = prev_monday + dt.timedelta(days=4)
 
     # if a weekend, update to wk that just ended
-    if ref_date.day > 4:
+    if ref_date.weekday() > 4:
         prev_monday += week
         prev_friday += week
 
     # if after 5 on a friday, prev_monday is this monday
-    elif ref_date.day == 4 and ref_date - dt.datetime.combine(prev_friday, dt.time(17)) > week:
+    elif ref_date.weekday() == 4 and ref_date - dt.datetime.combine(prev_friday, dt.time(17)) > week:
         prev_monday += week
         prev_friday += week
     

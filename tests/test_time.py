@@ -2,6 +2,7 @@ import pytest
 import datetime as dt
 import src.Time as Time
 
+
 def test_get_prev_workday_1():
     """Sunday -> Friday"""
     testDay = dt.datetime(2020, 9, 6)  # Sunday
@@ -9,6 +10,7 @@ def test_get_prev_workday_1():
     prev_workday = dt.datetime(2020, 9, 4)  # Friday
     test = prev_workday == prev_workday_test
     assert test
+
 
 def test_get_prev_workday_2():
     """Monday -> Friday"""
@@ -18,6 +20,7 @@ def test_get_prev_workday_2():
     test = prev_workday == prev_workday_test
     assert test
 
+
 def test_get_prev_workday_3():
     """Wednesday -> Tuesday"""
     testDay = dt.datetime(2020, 9, 9)  # Wednesday
@@ -26,6 +29,7 @@ def test_get_prev_workday_3():
     test = prev_workday == prev_workday_test
     assert test
 
+
 def test_get_prev_workday_4():
     """Friday 5p+ -> Friday"""
     testDay = dt.datetime(2020, 9, 4, 17, 1)  # Friday 1min after 5
@@ -33,6 +37,7 @@ def test_get_prev_workday_4():
     prev_workday = dt.datetime(2020, 9, 4)  # Friday (same)
     test = prev_workday == prev_workday_test
     assert test
+
 
 def test_get_prev_workwk_1():
     """Sunday -> M/F"""
@@ -43,6 +48,7 @@ def test_get_prev_workwk_1():
     test = (prev_wk_m == prev_wk_m_test) and (prev_wk_f == prev_wk_f_test)
     assert test
 
+
 def test_get_prev_workwk_2():
     """Friday -> M/F(prev)"""
     testDay = dt.datetime(2020, 9, 4, 0, 0)  # Friday
@@ -52,6 +58,7 @@ def test_get_prev_workwk_2():
     test = (prev_wk_m == prev_wk_m_test) and (prev_wk_f == prev_wk_f_test)
     assert test
 
+
 def test_get_prev_workwk_3():
     """Friday 5p+ -> M/F(same)"""
     testDay = dt.datetime(2020, 9, 4, 17, 1)  # Friday 1min after 5
@@ -60,3 +67,11 @@ def test_get_prev_workwk_3():
     prev_wk_f_test = dt.datetime(2020, 9, 4)  # Friday (same)
     test = (prev_wk_m == prev_wk_m_test) and (prev_wk_f == prev_wk_f_test)
     assert test
+
+
+def test_get_prev_workwk_curr():
+    """Current day's last workwk"""
+    testDay = dt.datetime.now()
+    prev_wk_m, prev_wk_f = Time.get_prev_workweek(testDay)
+    print(f"\n[SS]-[TIME]-[TEST] Today's Date: wkDay({testDay.weekday()}) the {testDay.date()}, last wk: ({prev_wk_m.date()} - {prev_wk_f.date()})")
+    assert True

@@ -67,7 +67,7 @@ def verify_api_key(api_key, api_key_path, get_references=False):
 
 def print_acct_usage(api_key):
     """
-    TODO get this woking. currently error w key or something
+    TODO get this working. currently error w key or something
     """
     print("[SS]-[API] Getting usage information...")
     usage = get_usage(quota_type="messages", token=api_key)

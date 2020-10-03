@@ -13,7 +13,7 @@ def plot_stock(stock_df, start_time, end_time, save_destination="C:\\"):
     df_path = file_path + ".xlsx"
 
     stock_df.plot()
-    writer = pd.ExcelWriter(df_path)
+    writer = pd.ExcelWriter(df_path)  # pylint: disable=abstract-class-instantiated
 
     print("[SS]-[PLOTS] Saving data to", df_path)
     stock_df.to_excel(writer, sheet_name="StockData")

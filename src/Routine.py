@@ -67,7 +67,7 @@ class Routine:
         self.duration = duration
         self.start_time = t.time()
         self.running_time = 0
-        print(f"[SS]-[ROUTINE] Beginning routine at {dt.datetime.fromtimestamp(self.start_time).date()}")
+        print(f"[SS]-[ROUTINE] Beginning routine at {dt.datetime.fromtimestamp(self.start_time)}")
 
         # todo add acct call check here-API
         while self.running_time < self.duration:

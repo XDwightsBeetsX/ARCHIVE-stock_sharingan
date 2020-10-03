@@ -16,13 +16,16 @@ from src.Routine import Routine
 api_path = "C:\\dev"
 api_filename = "iex_key.txt"
 
+routine_freq_s = 1
+routine_dur_s = 1
+
 if __name__ == "__main__":
     print("[SS] Running stock-sharingan...")
     
     api_key = get_api_key(api_path, api_filename)
 
     routine = Routine(api_key, ["AAPL"], file_save_destination="C:\\dev")
-    routine.run(1, 1)
+    routine.run()
 
 else:
     print("[SS]-[SYS]-[ERROR] Error running the project")
