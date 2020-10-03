@@ -9,9 +9,10 @@ Next steps for Routine.py:
 """
 import time as t
 import datetime as dt
-from iexfinance.stocks import Stock, get_historical_data
-from .Time import get_prev_workday, get_prev_workweek
-from .Plots import plot_stock
+from iexfinance.stocks import Stock
+from Time import get_prev_workday, get_prev_workweek
+from Plots import plot_stock
+from Stocks import get_last_workweek_data, get_losers, get_winners
 
 
 class Routine:
@@ -72,22 +73,9 @@ class Routine:
         # todo add acct call check here-API
         while self.running_time < self.duration:
             # Do stuff here
-            self.plot_last_workweek_data()
+            last_week_df = get_last_workweek_data(self)
+            plot_stock(last_week_df, self.file_save_destination)
 
             # Delay
             self.running_time = t.time() - self.start_time
             t.sleep(self.frequency)
-
-
-    def plot_last_workweek_data(self):
-        """
-        Gets last workweek (m, f) and calls Plot.plot_stock() to plot/save data
-        """
-        last_monday, last_friday = get_prev_workweek()
-        last_week_df = get_historical_data(self.stocks,
-                                           last_monday,
-                                           last_friday,
-                                           token=self.api_key,
-                                           close_only=True,
-                                           output_format="pandas")
-        plot_stock(last_week_df, last_monday, last_friday, self.file_save_destination)

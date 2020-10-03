@@ -24,7 +24,11 @@ if __name__ == "__main__":
     
     api_key = get_api_key(api_path, api_filename)
 
-    routine = Routine(api_key, ["AAPL"], file_save_destination="C:\\dev")
+    routine = Routine(api_key,
+                    ["AAPL"],
+                    frequency=routine_freq_s,
+                    duration=routine_dur_s,
+                    file_save_destination="C:\\dev")
     routine.run()
 
 else:

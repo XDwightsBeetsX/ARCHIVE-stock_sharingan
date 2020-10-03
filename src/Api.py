@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import datetime as dt
 from iexfinance.refdata import get_symbols
-from iexfinance.stocks import get_historical_data
+from iexfinance.stocks import get_historical_data, get_market_gainers, get_market_losers
 from iexfinance.account import get_usage, disallow_pay_as_you_go
 
 
@@ -72,16 +72,3 @@ def print_acct_usage(api_key):
     print("[SS]-[API] Getting usage information...")
     usage = get_usage(quota_type="messages", token=api_key)
     print(usage)
-
-
-def get_winners(api_key):
-    """
-    Get winner values:
-        ticker
-        price
-        $ & % change
-        volume
-    Save to excel
-    Email notify
-    """
-    print("[SS]-[API] Getting winners...")
