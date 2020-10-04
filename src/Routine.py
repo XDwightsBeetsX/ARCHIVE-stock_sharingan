@@ -9,7 +9,7 @@ Next steps for Routine.py:
 """
 import time as t
 import datetime as dt
-from iexfinance.stocks import Stock, get_historical_data, get_market_losers, get_market_gainers
+from iexfinance.stocks import get_historical_data, get_market_losers, get_market_gainers
 from src.Time import get_prev_workday, get_prev_workweek
 from src.Plots import plot_stock
 from src.Stocks import StockInfo
@@ -23,7 +23,7 @@ class Routine:
     For conversions, use datetime.fromtimestamp()
     """
     api_key = ""
-    stocks = []
+    stocks = ()
     frequency_s = 0
     duration_s = 0
     start_time_t = 0
@@ -45,10 +45,9 @@ class Routine:
         print(f"[SS]-[ROUTINE] New routine created: " +
               f"freq={frequency_min:.3f}s, dur={duration_hr:.3f}hr, stocks={stocks}")
 
-
-    def setup(self, stocks=stocks, frequency_min=frequency_s / 60, duration_hr=duration_s / 60 / 60,
-                file_save_destination=file_save_destination, notify_email=notify_email, notify_sms=notify_sms):
-        self.stocks = stocks
+    def setup(self, change_stocks=stocks, frequency_min=frequency_s/60, duration_hr=duration_s/60/60,
+              file_save_destination=file_save_destination, notify_email=notify_email, notify_sms=notify_sms):
+        self.stocks = change_stocks
         self.frequency_s = frequency_min * 60  # min to sec
         self.duration_s = duration_hr * 60 * 60  # hr to min to sec
         self.file_save_destination = file_save_destination
@@ -56,7 +55,6 @@ class Routine:
         self.notify_sms = notify_sms
         print(f"[SS]-[ROUTINE] Current routine changed: " +
               f"freq={frequency_min:.3f}m, dur={duration_hr:.3f}hr, stocks={self.stocks}")
-
 
     def run(self, frequency_min=frequency_s / 60, duration_hr=duration_s / 60 / 60):
         """
@@ -88,20 +86,18 @@ class Routine:
             self.running_time_t = t.time() - self.start_time_t
             t.sleep(self.frequency_s)
 
-
     def get_last_workweek_data(self):
         """
         Gets last workweek (m, f) and calls Plot.plot_stock() to plot/save data
         """
         last_monday, last_friday = get_prev_workweek()
         last_week_df = get_historical_data(self.stocks,
-                                            last_monday,
-                                            last_friday,
-                                            token=self.api_key,
-                                            close_only=True,
-                                            output_format="pandas")
+                                           last_monday,
+                                           last_friday,
+                                           token=self.api_key,
+                                           close_only=True,
+                                           output_format="pandas")
         return StockInfo(last_week_df, last_monday, last_friday)
-
 
     def get_winners(self):
         """
@@ -118,7 +114,6 @@ class Routine:
                                         output_format="pandas")
         return StockInfo(winners_df)
 
-
     def get_losers(self):
         """
         Get lower values:
@@ -131,5 +126,5 @@ class Routine:
         """
         print("[SS]-[API] Getting losers...")
         losers_df = get_market_losers(token=self.api_key,
-                                        output_format="pandas")
+                                      output_format="pandas")
         return StockInfo(losers_df)

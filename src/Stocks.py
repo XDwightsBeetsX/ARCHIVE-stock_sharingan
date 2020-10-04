@@ -19,7 +19,7 @@ class StockInfo:
     start_dateTime = dt.time()
     end_dateTime = dt.time()
 
-    def __init__(self, stock_df, start_dateTime=dt.time(), end_dateTime=dt.time()):
+    def __init__(self, stock_df, start_datetime=dt.time(), end_datetime=dt.time()):
         self.df = stock_df
-        self.start_dateTime = start_dateTime
-        self.end_dateTime = end_dateTime
+        self.start_dateTime = start_datetime
+        self.end_dateTime = end_datetime
