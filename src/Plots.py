@@ -4,7 +4,7 @@ This module handles plotting of stocks and other data
 import pandas as pd
 from iexfinance.stocks import Stock
 from matplotlib import pyplot as plt
-from Stocks import StockInfo
+from src.Stocks import StockInfo
 
 
 def plot_stock(stockInfo, save_destination="C:\\"):
