@@ -47,6 +47,9 @@ class Routine:
 
     def setup(self, change_stocks=stocks, frequency_min=frequency_s/60, duration_hr=duration_s/60/60,
               file_save_destination=file_save_destination, notify_email=notify_email, notify_sms=notify_sms):
+        """
+        Used to modify the routine
+        """
         self.stocks = change_stocks
         self.frequency_s = frequency_min * 60  # min to sec
         self.duration_s = duration_hr * 60 * 60  # hr to min to sec
@@ -56,7 +59,7 @@ class Routine:
         print(f"[SS]-[ROUTINE] Current routine changed: " +
               f"freq={frequency_min:.3f}m, dur={duration_hr:.3f}hr, stocks={self.stocks}")
 
-    def run(self, frequency_min=frequency_s / 60, duration_hr=duration_s / 60 / 60):
+    def run(self):
         """
         Continuous process that does the following:
             tracks time and frequency of loop
@@ -64,25 +67,27 @@ class Routine:
             gets stock data like winners and desired ticker info
             sends notification messages
         """
-        self.frequency_s = frequency_min * 60  # min to sec
-        self.duration_s = duration_hr * 60 * 60  # hr to min to sec
         self.running_time_t = 0
         self.routine_iter = 0
         self.start_time_t = t.time()
         print(f"[SS]-[ROUTINE] Beginning routine at {dt.datetime.fromtimestamp(self.start_time_t)}")
 
+        print(f"rt:{self.running_time_t}t, dur{self.duration_s}s")
+
         # todo add acct call check here-API
         while self.running_time_t < self.duration_s:
             # Do stuff here
             last_week_df = self.get_last_workweek_data()
+            print(last_week_df)
             plot_stock(last_week_df, self.file_save_destination)
 
-            winners = self.get_winners()
-            print(winners)
+            # winners = self.get_winners()
+            # print(winners)
 
-            # Delay
+            # Delay and notify
             self.routine_iter += 1
             print(f"[SS]-[ROUTINE] Routine has run {self.routine_iter} times.")
+            self.notify()
             self.running_time_t = t.time() - self.start_time_t
             t.sleep(self.frequency_s)
 
@@ -107,7 +112,6 @@ class Routine:
             $ & % change
             volume
         Save to excel
-        Email notify
         """
         print("[SS]-[API] Getting winners...")
         winners_df = get_market_gainers(token=self.api_key,
@@ -122,9 +126,14 @@ class Routine:
             $ & % change
             volume
         Save to excel
-        Email notify
         """
         print("[SS]-[API] Getting losers...")
         losers_df = get_market_losers(token=self.api_key,
                                       output_format="pandas")
         return StockInfo(losers_df)
+
+    def notify(self):
+        """
+        
+        """
+        pass

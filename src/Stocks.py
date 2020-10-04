@@ -16,10 +16,14 @@ import datetime as dt
 
 class StockInfo:
     df = pd.DataFrame()
-    start_dateTime = dt.time()
-    end_dateTime = dt.time()
+    start_datetime = dt.time()
+    end_datetime = dt.time()
 
     def __init__(self, stock_df, start_datetime=dt.time(), end_datetime=dt.time()):
         self.df = stock_df
-        self.start_dateTime = start_datetime
-        self.end_dateTime = end_datetime
+
+        dates = stock_df["date"]
+        self.start_datetime = dates[0]
+        self.end_datetime = dates[len(dates)]
+        print(f"[SS]-[STOCKINFO] New StockInfo: ({self.start_datetime}-{self.end_datetime}) {self.df[0]}")
+

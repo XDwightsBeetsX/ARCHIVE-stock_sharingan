@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 
 def plot_stock(stock_info, save_destination="C:\\"):
-    filename = f"StockData({stock_info.start_dateTime.date()} - {stock_info.end_dateTime.date()})"
+    filename = f"StockData({stock_info.start_datetime.date()} - {stock_info.end_datetime.date()})"
     file_path = save_destination + "\\" + filename
     plot_path = file_path + ".png"
     df_path = file_path + ".xlsx"

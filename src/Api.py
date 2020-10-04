@@ -8,7 +8,7 @@ import pandas as pd
 import datetime as dt
 from iexfinance.refdata import get_symbols
 from iexfinance.stocks import get_historical_data
-from iexfinance.account import get_usage, disallow_pay_as_you_go
+from iexfinance.account import get_usage
 
 
 def get_api_key(api_path, api_filename, get_references=False):
@@ -29,7 +29,6 @@ def get_api_key(api_path, api_filename, get_references=False):
                             print(f"[SS]-[API] Attempting to verify key: [{api_key}]")
                             if verify_api_key(api_key, root, get_references):
                                 print("[SS]-[API] Key verified.")
-                                disallow_pay_as_you_go(token=api_key)
                                 return api_key
                             else:
                                 print("[SS]-[API]-[ERROR] Key was found, but is not valid.")
