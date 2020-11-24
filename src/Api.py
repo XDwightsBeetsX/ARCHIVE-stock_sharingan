@@ -32,11 +32,11 @@ def get_api_key(api_path, api_filename, get_references=False):
                                 return api_key
                             else:
                                 print("[SS]-[API]-[ERROR] Key was found, but is not valid.")
-                    except [RuntimeError, FileNotFoundError]:
+                    except (RuntimeError, FileNotFoundError):
                         print("[SS]-[API]-[ERROR] Encountered error while reading/verifying key.")
         raise Exception
 
-    except [RuntimeError, FileNotFoundError]:
+    except (RuntimeError, FileNotFoundError):
         print("[SS]-[API]-[ERROR] Make sure the only contents of the file is your key.")
         print("[SS]-[API]-[ERROR] Exiting... ")
         exit()

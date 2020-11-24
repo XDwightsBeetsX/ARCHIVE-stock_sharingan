@@ -10,7 +10,7 @@ Next steps for Routine.py:
 import time as t
 import datetime as dt
 from iexfinance.stocks import get_historical_data, get_market_losers, get_market_gainers
-from src.Time import get_prev_workday, get_prev_workweek
+from src.Time import get_prev_workweek
 from src.Plots import plot_stock
 from src.Stocks import StockInfo
 
